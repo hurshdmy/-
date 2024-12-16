@@ -1,0 +1,83 @@
+# Crypto Wallet Generator
+
+## Installation
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/crypto-wallet-generator.git
+```
+
+2. Install dependencies:
+```bash
+pip install bitcoinlib
+```
+
+3. Run the script:
+```bash
+python wallet_generator.py
+```
+
+## Features
+- Generates a new Bitcoin wallet with a public and private key.
+- Displays the wallet address and QR code for easy access.
+
+---
+
+### wallet_generator.py
+```python
+from bitcoinlib.wallets import Wallet
+
+def generate_wallet():
+    wallet = Wallet.create('MyTestWallet')
+    address = wallet.get_key().address
+    private_key = wallet.get_key().private_hex
+
+    return address, private_key
+
+def main():
+    print("Welcome to the Crypto Wallet Generator!")
+    address, private_key = generate_wallet()
+
+    print("\nYour new Bitcoin wallet details:")
+    print(f"Address: {address}")
+    print(f"Private Key: {private_key}")
+    print("\nIMPORTANT: Save your private key securely. If you lose it, you cannot access your funds!")
+
+if __name__ == "__main__":
+    main()
+```
+
+### README.md
+```markdown
+# Crypto Wallet Generator
+
+A simple Python script to generate Bitcoin wallets using the `bitcoinlib` library.
+
+## How It Works
+This script creates a Bitcoin wallet and displays the wallet address and private key. It is designed for demonstration purposes and should not be used to store real funds without additional security measures.
+
+### Requirements
+- Python 3.7+
+- `bitcoinlib` library
+
+## Usage
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/yourusername/crypto-wallet-generator.git
+    ```
+2. Install dependencies:
+    ```bash
+    pip install bitcoinlib
+    ```
+3. Run the script:
+    ```bash
+    python wallet_generator.py
+    ```
+4. Save the private key securely to avoid losing access to your wallet.
+
+## Future Improvements
+- Add support for multiple cryptocurrencies.
+- Include an option to encrypt the private key.
+- Display QR codes for wallet addresses.
+
+---
+Contributions are welcome! Feel free to fork and submit a pull request.
